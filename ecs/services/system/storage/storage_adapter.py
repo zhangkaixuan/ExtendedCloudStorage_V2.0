@@ -130,7 +130,7 @@ def test():
 
     file = open('/home/zhangkaixuan/test')
     dic = {"storage_url": url, 'token': token, 'container': '5', 'headers': {'hello': 'df'}, \
-           'object': '1234ddd6.sql', 'contents': file}
+           'object': 'test', 'contents': file}
     result = ApiMapping().scloud_get_domain(**dic)
     print result
 
