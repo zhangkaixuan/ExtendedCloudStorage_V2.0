@@ -28,7 +28,7 @@ def application(environ, start_response):
 if __name__ == '__main__':
     httpd = make_server(
         'localhost',
-        8888,
+        8080,
         application
     )
 

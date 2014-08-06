@@ -9,9 +9,6 @@ import ConfigParser
 
 ''' http status code  and its description'''
 
-parser = ConfigParser.ConfigParser()
-parser.read("/etc/ecs/ecs.config")
-
 RESPONSE_REASONS = {
     100: ('Continue', ''),
     200: ('OK', ''),
@@ -106,16 +103,20 @@ HTTPServiceUnavailable = status_map[503]
 HTTPInsufficientStorage = status_map[507]
 
 #全局的参数
+CONFIG_BASE_DIR = '/etc/ecs/'
+parser = ConfigParser.ConfigParser()
+parser.read(CONFIG_BASE_DIR+"ecs.config")
+
 SWIFT_AUTH_URL = parser.get("SWIFT", "SWIFT_AUTH_URL")
 SWIFT_URL = parser.get("SWIFT", "SWIFT_URL")
 SWIFT_USER = parser.get("SWIFT", "SWIFT_USER")
 SWIFT_PW = parser.get("SWIFT", "SWIFT_PW")
 
-
+PROXY_SERVER_URL = parser.get("DEFULT", "PROXY_SERVER_URL")
+CDMI_VERSION = parser.get("DEFULT", "CDMI_VERSION")
 #Service Configuration File
-ServiceConfigFile = '/home/zhangkaixuan/workspace/EcustCloudStorage/services/backend/mq/services.xml'
+ServiceConfigFile = '/etc/ecs/services.xml'
 
-#Server Configuration File Path
-proxy_server_config_file = '/home/zhangkaixuan/workspace/EcustCloudStorage/proxy/config.ini'
+PROXY_SERVER_CONFIG = CONFIG_BASE_DIR+"config.ini"
+
 pie_server_config_file = '/home/zhangkaixuan/workspace/EcustCloudStorage/services/backend/pie/config.ini'
-

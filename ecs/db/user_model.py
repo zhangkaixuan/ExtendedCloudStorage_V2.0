@@ -77,6 +77,6 @@ class UserLogic(object):
 
 if __name__ == '__main__':
     userOpr = UserLogic()
-    kwargs = {}
+    kwargs = {"id":100}
     print "测试：查询user表所有的记录"
     print userOpr.get_by_kwargs(**kwargs)
